@@ -10,7 +10,7 @@ let other_arg name = Printf.fprintf stderr "ignoring unexpected argument %s" nam
 let () =
   Arg.parse speclist other_arg usage_msg;
   (* Avoid using Unix shell features like redirection *)
-  let ic = Unix.open_process_in "git rev-parse HEAD" in
+  let ic = Unix.open_process_in "/usr/bin/git rev-parse HEAD" in
   let commit = input_line ic in
   let oc = open_out !output_file in
   output_string oc commit;
